@@ -14,33 +14,35 @@
 <![endif]-->
 </head>
 <body>
-<%= link_to image_tag("rails.svg", alt: "Rails logo", width: "200"),
-"https://rubyonrails.org/" %>
 <header class="navbar navbar-fixed-top navbar-inverse">
 <div class="container">
-<%= link_to "sample app", root_path, id: "logo" %>
-<nav>
-<ul class="nav navbar-nav navbar-right">
-<li><%= link_to "Home", root_path %></li>
-<li><%= link_to "Help", help_path %></li>
-<li><%= link_to "Log in",   '#' %></li>
-</ul>
-</nav>
+    <%= link_to "sample app", root_path, id: "logo" %>
+    <nav>
+        <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Help", help_path %></li>
+            <li><%= link_to "Log in",   '#' %></li>
+        </ul>
+    </nav>
 </div>
 </header>
-<div class="container">
-<%= yield %>
-</div>
-<footer class="footer">
-<small>
-The <a href="https://www.railstutorial.org/">Ruby on Rails Tutorial</a>
-</small><nav>
-<ul>
-<li><%= link_to "About", about_path %></li>
-<li><%= link_to "Contact", contact_path %></li>
-<li><a href="https://news.railstutorial.org/">News</a></li>
-</ul>
-</nav>
-</footer>
-</body>
+    <div class="container">
+        <% flash.each do |message_type, message| %>
+<div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
+        <%= yield %>
+        <%= debug(params) unless Rails.env.development? %>
+    </div>
+    <footer class="footer">
+        <small>
+        The <a href="https://www.railstutorial.org/">Ruby on Rails Tutorial</a>
+        </small><nav>
+                <ul>
+                    <li><%= link_to "About", about_path %></li>
+                    <li><%= link_to "Contact", contact_path %></li>
+                    <li><a href="https://news.railstutorial.org/">News</a></li>
+                </ul>
+                </nav>
+            </footer>
+        </body>
 </html>
