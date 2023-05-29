@@ -7,6 +7,9 @@
             <section class="user_info">
                 <%= render 'shared/user_info' %>
             </section>
+            <section class="stats">
+                <%= render 'shared/stats' %>
+            </section>
             <section class="micropost_form">
                 <%= render 'shared/micropost_form' %>
             </section>
@@ -18,7 +21,6 @@
     </div>
 <% else %>
 <div class="center jumbotron">
-<%end %>
 <h1>Welcome to the Sample App</h1>
 <h2>
 This is the home page for the
@@ -27,3 +29,4 @@ sample application.
 </h2>
 <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
 </div>
+<%end %>
